@@ -1,0 +1,25 @@
+module.exports = {
+    name: "ping",
+    description: "Mostra o ping do bot e da API discord.js",
+    async execute(client, Discord, message, args, config) {
+        if (message.member.hasPermission('ADMINISTRATOR')) {
+            await message.channel.send("Pong")
+                .then(msg => {
+                    const ping = msg.createdTimestamp - message.createdTimestamp;
+                    message.channel.send(
+                        new Discord.MessageEmbed()
+                            .setColor(message.guild.member(client.user).displayHexColor)
+                            .setTitle(`| Latência do bot`)
+                            .setDescription(`Ping do Bot: ${ping}ms\nPing da API: ${Math.round(client.ws.ping)}ms`)
+                            .setFooter(client.user.username, client.user.displayAvatarURL({ format: "png" }))
+                            .setTimestamp());
+                    msg.delete();
+                });
+            message.delete({ timeout: 50 });
+        } else {
+            message.channel.send("Você precisa da permissão \`Administrador\` para usar esse comando.")
+                .then(msg => { msg.delete({ timeout: 3000 }); });
+            message.delete({ timeout: 3000 });
+        }
+    }
+}

@@ -1,0 +1,78 @@
+{
+    "token": "NzgxNTU4OTU0NzEwOTI1MzY0.X7_Zfw.1ZNXpnDFQof6tEoKNS7UZBZWDM0",
+    "prefix": "+",
+    "devID": "273157210413203457",
+
+    "welcomeImageURL": "https://cdn.glitch.com/d59b0823-d8cc-43b3-8cc2-3a997361643b%2Ffilha%20duma%20puta%20desgra%C3%A7a%20ai%20ui%20filha%20da%20putaaaaaaaaaaaaaaaaaaaaaaaaaaa.png?v=1567721433728",
+
+    "minecraftIP": "jogar.rarley.com",
+
+    "formCooldown": 604800000,
+
+    "guilds": {
+        "harley": {
+            "id": "568645820648259586",
+
+            "channels": {
+                "comandos": "781651258808860733",
+                "anuncios": "781650643823493181",
+                "sugestao": "781651302803046400",
+                "welcome": "781650898756829195",
+                "suporte": "618505397510340648",
+                "APISupport": "786303549579460659",
+                "logs": "786365630562828288",
+                "geral": "618505398474768385",
+                "sorteio": "792194726920192060"
+            },
+
+            "emojis": {
+                "harley": "618507312226893850",
+                "concordo": "618512102512132126",
+                "discordo": "618512125836394517",
+                "duvidas": "618508048889020416",
+                "compras": "618509297390714884",
+                "yt": "618508274404425741",
+                "revisoes": "618616529587666993",
+                "outros": "618509317779226624",
+                "fechar": "618517271094100021"
+            },
+
+            "roles": {
+                "everyone": "568645820648259586",
+                "mute": "786305919800705065",
+                "membro": "618505378572795910",
+                "admin": "618505370381320192",
+                "ajudante": "618505373380509716"
+            },
+
+            "messages": {
+                "suporte": "786309015197581382"
+            },
+
+            "parents": {
+                "suporte": "781653755468578836"
+            }
+        },
+
+        "equipe": {
+            "id": "781905828663263262",
+
+            "channels": {
+                "logFormularios": "786362661091803136",
+                "introducao": "781906545003855914",
+                "changelog": "787371514898415616",
+                "logs": "788952666004389889"
+            },
+
+            "roles": {
+                "everyone": "781905828663263262",
+                "admin": "781905828730241024",
+                "ajudante": "781905828663263270"
+            },
+
+            "parents": {
+                "formulario": "781910506268131348"
+            }
+        }
+    }
+}
