@@ -24,7 +24,7 @@ module.exports = {
 
             ticket.send(new Discord.MessageEmbed()
                 .setColor(client.guilds.resolve(config.guilds.harley.id).member(client.user).displayHexColor)
-                .setTitle('│ Suporte • Rede Harley')
+                .setTitle('│ Suporte • Rede Harley', client.guilds.resolve(config.guilds.harley.id).iconURL())
                 .setDescription(`Mensagem automática após reinício do bot.
                 
                 Clique na reação desta mensagem para fechar o ticket.

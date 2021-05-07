@@ -32,7 +32,7 @@ module.exports = {
             target.roles.remove(muteRole);
             message.channel.send(new Discord.MessageEmbed()
                 .setColor(message.guild.member(client.user).displayHexColor)
-                .setTitle('│ Punição • Rede Harley')
+                .setAuthor('│ Punição • Rede Harley', message.guild.iconURL())
                 .setDescription(`O membro <@${target.id}> foi desmutado.`)
                 .setFooter(message.author.tag, message.author.displayAvatarURL({ format: "png" }))
                 .setTimestamp());

@@ -5,7 +5,7 @@ module.exports = {
 
         message.channel.send(new Discord.MessageEmbed()
             .setColor(message.guild.member(client.user).displayHexColor)
-            .setTitle(`│ Info • Bot • Rede Harley`)
+            .setAuthor(`│ Info • Bot • Rede Harley`, message.guild.iconURL())
             .setDescription(`**Versão:** ${package.version}
             **Feito por** <@${config.devID}>.
             

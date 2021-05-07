@@ -9,7 +9,7 @@ module.exports = {
                     message.channel.send(
                         new Discord.MessageEmbed()
                             .setColor(message.guild.member(client.user).displayHexColor)
-                            .setTitle(`| Latência do bot`)
+                            .setAuthor(`| Latência do bot`, message.guild.iconURL())
                             .setDescription(`Ping do Bot: ${ping}ms\nPing da API: ${Math.round(client.ws.ping)}ms`)
                             .setFooter(client.user.username, client.user.displayAvatarURL({ format: "png" }))
                             .setTimestamp());

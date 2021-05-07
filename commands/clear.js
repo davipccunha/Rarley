@@ -27,7 +27,7 @@ module.exports = {
 
             message.channel.send(new Discord.MessageEmbed()
                 .setColor('#00ff00')
-                .setTitle('| Canal limpado')
+                .setAuthor('| Canal limpado', message.guild.iconURL())
                 .setDescription(`Foram deletadas as **${n}** últimas mensagens`)
                 .setFooter(message.author.tag, message.author.displayAvatarURL({ format: "png" }))
                 .setTimestamp())

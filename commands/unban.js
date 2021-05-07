@@ -28,7 +28,7 @@ module.exports = {
 
             message.channel.send(new Discord.MessageEmbed()
                 .setColor(message.guild.member(client.user).displayHexColor)
-                .setTitle('│ Punição • Rede Harley')
+                .setAuthor('│ Punição • Rede Harley', message.guild.iconURL())
                 .setDescription(`O membro <@${targetID}> foi desbanido do servidor.`)
                 .setFooter(message.author.tag, message.author.displayAvatarURL({ format: "png" }))
                 .setTimestamp());

@@ -23,7 +23,7 @@ module.exports = {
 
             channel.send(new Discord.MessageEmbed()
                 .setColor('#66FF33')
-                .setTitle('| Canal liberado')
+                .setAuthor('| Canal liberado', message.guild.iconURL())
                 .setDescription(`Este canal foi liberado para que todos enviem mensagens.`)
                 .setFooter(message.author.tag, message.author.displayAvatarURL({ format: "png" }))
                 .setTimestamp());

@@ -15,7 +15,7 @@ module.exports = {
 
             ch.send(new Discord.MessageEmbed()
                 .setColor(message.guild.member(client.user).displayHexColor)
-                .setTitle(`│ Anúncio • Rede Harley`)
+                .setAuthor(`│ Anúncio • Rede Harley`, message.guild.iconURL())
                 .setDescription(args.join(' '))
                 .setFooter(message.author.tag, message.author.displayAvatarURL({ format: "png" }))
                 .setTimestamp())

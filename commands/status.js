@@ -6,7 +6,9 @@ module.exports = {
         const request = require('request')
 
         const mcIP = config.minecraftIP;
-        const url = "https://api.mcsrvstat.us/ping/" + mcIP;
+        const url = "https://api.mcsrvstat.us/2/" + mcIP;
+
+        message.delete({ timeout: 50 });
 
         request(url, function (err, reponse, body) {
 
@@ -24,7 +26,7 @@ module.exports = {
 
                 message.channel.send(new Discord.MessageEmbed()
                     .setColor(message.guild.member(client.user).displayHexColor)
-                    .setTitle(`| IP: ${mcIP}`)
+                    .setAuthor(`| IP: ${mcIP}`, message.guild.iconURL())
                     .setDescription(`Status: \`Online\`\n${playersOn}/${playersMax} jogadores`)
                     .setFooter(client.user.username, client.user.displayAvatarURL({ format: "png" }))
                     .setTimestamp());
@@ -32,15 +34,12 @@ module.exports = {
             } else {
                 message.channel.send(new Discord.MessageEmbed()
                     .setColor(message.guild.member(client.user).displayHexColor)
-                    .setTitle(`| IP: ${mcIP}`)
+                    .setAuthor(`| IP: ${mcIP}`, message.guild.iconURL())
                     .setDescription(`Status: \`Offline\``)
                     .setFooter(client.user.username, client.user.displayAvatarURL({ format: "png" }))
                     .setTimestamp());
-
             }
 
         })
-
-        message.delete({ timeout: 50 });
     }
 }

@@ -20,7 +20,7 @@ module.exports = {
             db.delete(`form_${args[0]}`);
             message.channel.send(new Discord.MessageEmbed()
                 .setColor(message.guild.member(client.user).displayHexColor)
-                .setTitle('| Formulário • Rede Harley')
+                .setAuthor('| Formulário • Rede Harley', message.guild.iconURL())
                 .setDescription(`Cooldown de formulário de <@${args[0]}> resetado.`));
             message.delete({ timeout: 5000 })
         };

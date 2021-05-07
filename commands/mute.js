@@ -34,7 +34,7 @@ module.exports = {
                 target.roles.add(muteRole);
                 message.channel.send(new Discord.MessageEmbed()
                     .setColor(message.guild.member(client.user).displayHexColor)
-                    .setTitle('│ Punição • Rede Harley')
+                    .setTitle('│ Punição • Rede Harley', message.guild.iconURL())
                     .setDescription(`O membro <@${target.id}> foi mutado por tempo indeterminado.`)
                     .setFooter(message.author.tag, message.author.displayAvatarURL({ format: "png" }))
                     .setTimestamp());
@@ -51,7 +51,7 @@ module.exports = {
                 target.roles.add(muteRole);
                 message.channel.send(new Discord.MessageEmbed()
                     .setColor(message.guild.member(client.user).displayHexColor)
-                    .setTitle('│ Punição • Rede Harley')
+                    .setAuthor('│ Punição • Rede Harley', message.guild.iconURL())
                     .setDescription(`O membro <@${target.id}> foi mutado por ${ms(ms(args[1]))}.`)
                     .setFooter(message.author.tag, message.author.displayAvatarURL({ format: "png" }))
                     .setTimestamp());
@@ -59,8 +59,8 @@ module.exports = {
                 setTimeout(function () {
                     message.channel.send(new Discord.MessageEmbed()
                         .setColor(message.guild.member(client.user).displayHexColor)
-                        .setTitle('│ Punição • Rede Harley')
-                        .setDescription(`O membro <@${target.id}> foi desmutado.`)
+                        .setAuthor('│ Punição • Rede Harley')
+                        .setDescription(`O membro <@${target.id}> foi desmutado.`, message.guild.iconURL())
                         .setFooter(client.user.username, client.user.displayAvatarURL({ format: "png" }))
                         .setTimestamp());
                     target.roles.remove(muteRole);

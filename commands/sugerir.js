@@ -23,7 +23,7 @@ module.exports = {
 
         message.guild.channels.resolve(config.guilds.harley.channels.sugestao).send(new Discord.MessageEmbed()
             .setColor(message.guild.member(client.user).displayHexColor)
-            .setTitle(`│ Sugestão de ${message.author.username}`)
+            .setAuthor(`│ Sugestão de ${message.author.username}`, message.guild.iconURL())
             .setDescription(args.join(" "))
             .setFooter(message.author.tag, message.author.displayAvatarURL({ format: "png" }))
             .setTimestamp())

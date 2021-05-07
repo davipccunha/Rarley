@@ -70,9 +70,9 @@ client.on('message', async message => {
                     await client.commands.get("ping").execute(client, Discord, message, args, config);
                     break;
                 case 'status':
-					message.channel.send('Comando indisponível').then(msg => {msg.delete({ timeout: 3000 })});
-					message.delete({ timeout: 3000 });
-                    //await client.commands.get("status").execute(client, Discord, message, args, config);
+                    //message.channel.send('Comando indisponível').then(msg => {msg.delete({ timeout: 3000 })});
+                    message.delete({ timeout: 3000 });
+                    await client.commands.get("status").execute(client, Discord, message, args, config);
                     break;
                 case 'sugerir':
                 case 'sugestão':
