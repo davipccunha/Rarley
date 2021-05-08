@@ -22,7 +22,7 @@ module.exports = {
             const collectorOutros = supportMessage.createReactionCollector(filterOutros);
 
             collectorDuvidas.on('collect', (reaction, user) => {
-                reaction.users.remove(reaction.users.cache.last().id)
+                reaction.users.remove(user.id)
                 client.guilds.resolve(config.guilds.harley.id).channels.create(`dúvida-de-${user.username}`, {
                     type: 'text',
                     parent: config.guilds.harley.parents.suporte,
@@ -66,7 +66,7 @@ module.exports = {
             });
 
             collectorCompras.on('collect', (reaction, user) => {
-                reaction.users.remove(reaction.users.cache.last().id)
+                reaction.users.remove(user.id)
                 client.guilds.resolve(config.guilds.harley.id).channels.create(`compra-de-${user.username}`, {
                     type: 'text',
                     parent: config.guilds.harley.parents.suporte,
@@ -106,7 +106,7 @@ module.exports = {
             })
 
             collectorYT.on('collect', (reaction, user) => {
-                reaction.users.remove(reaction.users.cache.last().id)
+                reaction.users.remove(user.id)
                 client.guilds.resolve(config.guilds.harley.id).channels.create(`solicitação-de-${user.username}`, {
                     type: 'text',
                     parent: config.guilds.harley.parents.suporte,
@@ -146,7 +146,7 @@ module.exports = {
             })
 
             collectorRevisoes.on('collect', (reaction, user) => {
-                reaction.users.remove(reaction.users.cache.last().id)
+                reaction.users.remove(user.id)
                 client.guilds.resolve(config.guilds.harley.id).channels.create(`revisão-de-${user.username}`, {
                     type: 'text',
                     parent: config.guilds.harley.parents.suporte,
@@ -190,7 +190,7 @@ module.exports = {
             })
 
             collectorOutros.on('collect', (reaction, user) => {
-                reaction.users.remove(reaction.users.cache.last().id)
+                reaction.users.remove(user.id)
                 client.guilds.resolve(config.guilds.harley.id).channels.create(`outros-de-${user.username}`, {
                     type: 'text',
                     parent: config.guilds.harley.parents.suporte,
