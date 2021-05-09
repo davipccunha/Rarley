@@ -1,6 +1,6 @@
 module.exports = {
     name: "messageUpdate",
-    async execute(client, Discord, config, oldMessage, newMessage, prefix) {
+    async execute(client, Discord, config, oldMessage, newMessage) {
 
         // Logs
         const server = config.guilds.harley.id;

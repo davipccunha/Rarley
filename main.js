@@ -30,6 +30,14 @@ const prefix = config.prefix;
 client.once('ready', async () => {
     await client.events.get("ready").execute(client, Discord, config, fs, db, pms);
     await client.events.get("updateMembers").count(client, config);
+});
+
+client.on('messageReactionAdd', async (reaction, user) => {
+    await client.events.get("messageReactionAdd").execute(client, Discord, config, db, reaction, user);
+});
+
+client.on('channelDelete', async channel => {
+    await client.events.get("channelDelete").execute(client, Discord, config, db, channel);
 })
 
 client.on('guildMemberAdd', async member => {
@@ -40,14 +48,14 @@ client.on('guildMemberAdd', async member => {
 client.on('guildMemberRemove', async member => {
     await client.events.get("guildMemberRemove").execute(client, Discord, config, member)
     await client.events.get("updateMembers").count(client, config);
-})
+});
 
 client.on('messageUpdate', async (oldMessage, newMessage) => {
-    await client.events.get("messageUpdate").execute(client, Discord, config, oldMessage, newMessage, prefix);
+    await client.events.get("messageUpdate").execute(client, Discord, config, oldMessage, newMessage);
 });
 
 client.on('messageDelete', async message => {
-    await client.events.get("messageDelete").execute(client, Discord, config, message, prefix);
+    await client.events.get("messageDelete").execute(client, Discord, config, message);
 });
 
 client.on('message', async message => {
@@ -66,12 +74,22 @@ client.on('message', async message => {
             const command = args.shift().toLowerCase();
 
             switch (command) {
+                case 'control':
+                    if (message.author.id !== config.devID) return message.delete({ timeout: 1000 });
+                    if (args == 'all') {
+                        console.log(db.all())
+                    }
+                    else if (args == 'reset') {
+                        db.all().forEach(data => {
+                            db.delete(data.ID);
+                        })
+                    }
+                    message.delete({ timeout: 1000 });
+                    break;
                 case 'ping':
                     await client.commands.get("ping").execute(client, Discord, message, args, config);
                     break;
                 case 'status':
-                    //message.channel.send('Comando indisponível').then(msg => {msg.delete({ timeout: 3000 })});
-                    message.delete({ timeout: 3000 });
                     await client.commands.get("status").execute(client, Discord, message, args, config);
                     break;
                 case 'sugerir':

@@ -1,6 +1,6 @@
 module.exports = {
     name: "messageDelete",
-    async execute(client, Discord, config, message, prefix) {
+    async execute(client, Discord, config, message) {
 
         // Logs
         const server = config.guilds.harley.id;

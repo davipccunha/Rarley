@@ -7,7 +7,7 @@
 
     "minecraftIP": "jogar.rarley.com",
 
-    "formCooldown": 604800000,
+    "formCooldown": 7,
 
     "guilds": {
         "harley": {
