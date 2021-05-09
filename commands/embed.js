@@ -12,12 +12,26 @@ module.exports = {
                 return;
             }
 
-            message.channel.send(new Discord.MessageEmbed()
+            const embed = new Discord.MessageEmbed()
                 .setColor(message.guild.member(client.user).displayHexColor)
-                .setDescription(args.join(' '))
-                .setFooter(client.user.username, client.user.displayAvatarURL({ format: "png" }))
-                .setTimestamp());
-            message.delete({ timeout: 50 });
+                .setDescription(`${args.join(' ')}\nㅤ`)
+                .setFooter(client.user.username)
+                .setTimestamp();
+
+            switch (message.channel.id) {
+                case config.guilds.rarley.channels.suporte:
+                    embed.setAuthor(`│ Suporte • Rarley`, message.guild.iconURL());
+                    break;
+                case config.guilds.rarley.channels.formulario:
+                    embed.setAuthor(`│ Formulário • Rarley`, message.guild.iconURL());
+                    break;
+                case config.guilds.rarley.channels.spoilers:
+                    embed.setAuthor(`│ Spoilers • Rarley`, message.guild.iconURL());
+                    break;
+            }
+
+            message.channel.send(embed);
+            message.delete({ timeout: 200 });
 
         } else {
             message.channel.send("Você precisa da permissão \`Gerenciar Mensagens\` para usar esse comando.")

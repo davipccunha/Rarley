@@ -29,6 +29,9 @@ for (const file of eventFiles) {
 const prefix = config.prefix;
 
 client.once('ready', async () => {
+    client.channels.resolve(config.guilds.rarley.channels.spoilers).messages.fetch(config.guilds.rarley.messages.spoilers).then(supportMessage => {
+        supportMessage.react('🧐');
+    })
     await client.events.get("ready").execute(client, Discord, config, fs, db, pms);
     await client.events.get("updateMembers").count(client, config);
 });
@@ -36,6 +39,10 @@ client.once('ready', async () => {
 client.on('messageReactionAdd', async (reaction, user) => {
     await client.events.get("messageReactionAdd").execute(client, Discord, config, db, reaction, user);
 });
+
+client.on('messageReactionRemove', async (reaction, user) => {
+    await client.events.get("messageReactionRemove").execute(client, Discord, config, db, reaction, user);
+})
 
 client.on('channelDelete', async channel => {
     await client.events.get("channelDelete").execute(client, Discord, config, db, channel);
@@ -101,6 +108,9 @@ client.on('message', async message => {
                 case 'embed':
                     await client.commands.get("embed").execute(client, Discord, message, args, config);
                     break;
+                case 'spoiler':
+                    await client.commands.get("spoiler").execute(client, Discord, message, args, config);
+                    break;
                 case 'clear':
                     await client.commands.get("clear").execute(client, Discord, message, args, config);
                     break;
@@ -115,6 +125,9 @@ client.on('message', async message => {
                     break;
                 case 'agendaranuncio':
                     await client.commands.get("agendaranuncio").execute(client, Discord, message, args, config, db, schedule);
+                    break;
+                case 'cancelaranuncio':
+                    await client.commands.get("cancelaranuncio").execute(client, Discord, message, args, config, db, schedule);
                     break;
                 case 'kick':
                     await client.commands.get("kick").execute(client, Discord, message, args, config);

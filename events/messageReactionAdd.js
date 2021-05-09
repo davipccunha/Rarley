@@ -242,6 +242,10 @@ module.exports = {
             }
 
             db.delete(`form_msg_${reaction.message.id}_${reaction.message.channel.id}`);
+
+            // Spoilers
+        } else if (reaction.message.id === config.guilds.rarley.messages.spoilers && !user.bot && reaction.emoji.name === '🧐') {
+            reaction.message.guild.members.resolve(user.id).roles.add(config.guilds.rarley.roles.spoiler);
         }
     }
 }

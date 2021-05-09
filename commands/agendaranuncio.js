@@ -65,10 +65,6 @@ module.exports = {
                 function dateFormatMs(ms) {
                     const date = new Date(ms);
 
-                    if (ms == 0) {
-                        return `Ponto negado`;
-                    }
-
                     const dateDate = date.getDate() <= 9 ? '0' + date.getDate() : date.getDate();
                     const dateMonth = (date.getMonth() + 1) <= 9 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1);
                     const dateHours = date.getHours() <= 9 ? '0' + date.getHours() : date.getHours();
