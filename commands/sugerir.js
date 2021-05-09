@@ -4,8 +4,8 @@ module.exports = {
 
     execute(client, Discord, message, args, config) {
 
-        const concordo = config.guilds.harley.emojis.concordo;
-        const discordo = config.guilds.harley.emojis.discordo;
+        const concordo = config.guilds.rarley.emojis.concordo;
+        const discordo = config.guilds.rarley.emojis.discordo;
 
         if (!args.join(' ')) {
             message.channel.send('Faltando argumentos: Você precisa digitar uma sugestão.')
@@ -21,7 +21,7 @@ module.exports = {
             return;
         }
 
-        message.guild.channels.resolve(config.guilds.harley.channels.sugestao).send(new Discord.MessageEmbed()
+        message.guild.channels.resolve(config.guilds.rarley.channels.sugestao).send(new Discord.MessageEmbed()
             .setColor(message.guild.member(client.user).displayHexColor)
             .setAuthor(`│ Sugestão de ${message.author.username}`, message.guild.iconURL())
             .setDescription(args.join(" "))

@@ -4,6 +4,7 @@ const client = new Discord.Client({ fetchAllMembers: true, messageCacheMaxSize: 
 const fs = require('fs');
 const db = require('quick.db');
 const pms = require('parse-ms');
+const schedule = require('node-schedule');
 const config = require('./config.json');
 const package = require('./package.json');
 
@@ -60,15 +61,15 @@ client.on('messageDelete', async message => {
 
 client.on('message', async message => {
 
-    if (!message.content.startsWith(prefix) && message.channel.id == config.guilds.harley.channels.comandos && !message.author.bot && !message.member.hasPermission('MANAGE_MESSAGES')) {
-        message.channel.send(`Só é possível enviar comandos no canal <#${config.guilds.harley.channels.comandos}>.`)
+    if (!message.content.startsWith(prefix) && message.channel.id == config.guilds.rarley.channels.comandos && !message.author.bot && !message.member.hasPermission('MANAGE_MESSAGES')) {
+        message.channel.send(`Só é possível enviar comandos no canal <#${config.guilds.rarley.channels.comandos}>.`)
             .then(msg => { msg.delete({ timeout: 3000 }); });
         message.delete({ timeout: 50 });
     } else {
 
         if (!message.content.startsWith(prefix) || message.author.bot || message.channel.type == 'dm') return;
 
-        if (message.channel.id == config.guilds.harley.channels.comandos || message.member.hasPermission('MANAGE_MESSAGES')) {
+        if (message.channel.id == config.guilds.rarley.channels.comandos || message.member.hasPermission('MANAGE_MESSAGES')) {
 
             const args = message.content.trim().slice(prefix.length).split(' ');
             const command = args.shift().toLowerCase();
@@ -112,6 +113,9 @@ client.on('message', async message => {
                 case 'anunciar':
                     await client.commands.get("anunciar").execute(client, Discord, message, args, config);
                     break;
+                case 'agendaranuncio':
+                    await client.commands.get("agendaranuncio").execute(client, Discord, message, args, config, db, schedule);
+                    break;
                 case 'kick':
                     await client.commands.get("kick").execute(client, Discord, message, args, config);
                     break;
@@ -153,7 +157,7 @@ client.on('message', async message => {
                     message.delete({ timeout: 3000 });
             }
         } else {
-            message.channel.send(`Comandos devem ser enviadas no canal <#${config.guilds.harley.channels.comandos}>.`)
+            message.channel.send(`Comandos devem ser enviadas no canal <#${config.guilds.rarley.channels.comandos}>.`)
                 .then(msg => { msg.delete({ timeout: 3000 }); });
             message.delete({ timeout: 3000 });
         }

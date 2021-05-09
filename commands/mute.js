@@ -14,7 +14,7 @@ module.exports = {
             }
 
             const target = message.guild.members.resolve(args[0])
-            const muteRole = config.guilds.harley.roles.mute;
+            const muteRole = config.guilds.rarley.roles.mute;
 
             if (!target) {
                 message.channel.send('O membro especificado não está no servidor')
@@ -34,7 +34,7 @@ module.exports = {
                 target.roles.add(muteRole);
                 message.channel.send(new Discord.MessageEmbed()
                     .setColor(message.guild.member(client.user).displayHexColor)
-                    .setTitle('│ Punição • Rede Harley', message.guild.iconURL())
+                    .setTitle('│ Punição • Rarley', message.guild.iconURL())
                     .setDescription(`O membro <@${target.id}> foi mutado por tempo indeterminado.`)
                     .setFooter(message.author.tag, message.author.displayAvatarURL({ format: "png" }))
                     .setTimestamp());
@@ -51,7 +51,7 @@ module.exports = {
                 target.roles.add(muteRole);
                 message.channel.send(new Discord.MessageEmbed()
                     .setColor(message.guild.member(client.user).displayHexColor)
-                    .setAuthor('│ Punição • Rede Harley', message.guild.iconURL())
+                    .setAuthor('│ Punição • Rarley', message.guild.iconURL())
                     .setDescription(`O membro <@${target.id}> foi mutado por ${ms(ms(args[1]))}.`)
                     .setFooter(message.author.tag, message.author.displayAvatarURL({ format: "png" }))
                     .setTimestamp());
@@ -59,7 +59,7 @@ module.exports = {
                 setTimeout(function () {
                     message.channel.send(new Discord.MessageEmbed()
                         .setColor(message.guild.member(client.user).displayHexColor)
-                        .setAuthor('│ Punição • Rede Harley')
+                        .setAuthor('│ Punição • Rarley')
                         .setDescription(`O membro <@${target.id}> foi desmutado.`, message.guild.iconURL())
                         .setFooter(client.user.username, client.user.displayAvatarURL({ format: "png" }))
                         .setTimestamp());

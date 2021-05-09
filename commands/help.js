@@ -15,7 +15,7 @@ module.exports = {
 
         message.channel.send(new Discord.MessageEmbed()
             .setColor(message.guild.member(client.user).displayHexColor)
-            .setAuthor('| Comandos • Rede Harley', message.guild.iconURL())
+            .setAuthor('| Comandos • Rarley', message.guild.iconURL())
             .setDescription(helptxt)
             .setFooter(client.user.username, client.user.displayAvatarURL({ format: "png" }))
             .setTimestamp());

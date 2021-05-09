@@ -1,6 +1,6 @@
 module.exports = {
     name: "status",
-    description: "Mostra informações sobre o servidor do Minecraft da Rede Harley",
+    description: "Mostra informações sobre o servidor do Minecraft do Rarley",
     async execute(client, Discord, message, args, config) {
 
         const request = require('request')
@@ -19,7 +19,7 @@ module.exports = {
             const json = JSON.parse(body);
             const mine = "" + json;
 
-            if (!mine.startsWith('Failed')) {
+            if (!mine.startsWith('Failed') && json.online) {
 
                 var playersOn = json.players.online;
                 var playersMax = json.players.max;

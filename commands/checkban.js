@@ -26,7 +26,7 @@ module.exports = {
 
             message.channel.send(new Discord.MessageEmbed()
                 .setColor(message.guild.member(client.user).displayHexColor)
-                .setAuthor('│ Ban info • Rede Harley', message.guild.iconURL())
+                .setAuthor('│ Ban info • Rarley', message.guild.iconURL())
                 .setDescription(`O usuário <@${targetID}> está banido.`)
                 .addField('Motivo:', reason[0])
                 .addField('Autor:', reason[1])
@@ -37,7 +37,7 @@ module.exports = {
         } else {
             message.channel.send(new Discord.MessageEmbed()
                 .setColor(message.guild.member(client.user).displayHexColor)
-                .setAuthor('| Ban info • Rede Harley', message.guild.iconURL())
+                .setAuthor('| Ban info • Rarley', message.guild.iconURL())
                 .setDescription(`O usuário <@${targetID}> não está banido do servidor.`)
                 .setFooter(client.user.username, client.user.displayAvatarURL({ format: "png" }))
                 .setTimestamp());

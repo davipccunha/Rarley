@@ -3,30 +3,30 @@
     "prefix": "+",
     "devID": "273157210413203457",
 
-    "welcomeImageURL": "https://cdn.glitch.com/d59b0823-d8cc-43b3-8cc2-3a997361643b%2Ffilha%20duma%20puta%20desgra%C3%A7a%20ai%20ui%20filha%20da%20putaaaaaaaaaaaaaaaaaaaaaaaaaaa.png?v=1567721433728",
+    "welcomeImageURL": "https://cdn.discordapp.com/attachments/785890505434988555/840765581312786432/Game_game.png",
 
     "minecraftIP": "jogar.rarley.com",
 
     "formCooldown": 7,
 
     "guilds": {
-        "harley": {
+        "rarley": {
             "id": "568645820648259586",
 
             "channels": {
                 "comandos": "781651258808860733",
                 "anuncios": "781650643823493181",
                 "sugestao": "781651302803046400",
-                "welcome": "781650898756829195",
+                "welcome": "840767638556901377",
                 "suporte": "618505397510340648",
                 "APISupport": "786303549579460659",
                 "logs": "786365630562828288",
                 "geral": "618505398474768385",
-                "sorteio": "792194726920192060"
+                "secreto": "618618213139480576"
             },
 
             "emojis": {
-                "harley": "618507312226893850",
+                "rarley": "840811013762449438",
                 "concordo": "618512102512132126",
                 "discordo": "618512125836394517",
                 "duvidas": "618508048889020416",

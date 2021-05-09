@@ -26,7 +26,7 @@ module.exports = {
             target.kick(reason);
             message.channel.send(new Discord.MessageEmbed()
                 .setColor(message.guild.member(client.user).displayHexColor)
-                .setAuthor('│ Punição • Rede Harley', message.guild.iconURL())
+                .setAuthor('│ Punição • Rarley', message.guild.iconURL())
                 .setDescription(`O membro <@${target.id}> foi expulso do servidor.`)
                 .addField('Motivo:', reason)
                 .setFooter(message.author.tag, message.author.displayAvatarURL({ format: "png" }))

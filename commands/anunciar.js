@@ -4,7 +4,7 @@ module.exports = {
     execute(client, Discord, message, args, config) {
 
         if (message.member.hasPermission('ADMINISTRATOR')) {
-            const ch = message.guild.channels.resolve(config.guilds.harley.channels.anuncios);
+            const ch = message.guild.channels.resolve(config.guilds.rarley.channels.anuncios);
 
             if (!args.join(' ')) {
                 message.channel.send('Faltando argumentos: Digite o texto para anunciar.')
@@ -15,13 +15,13 @@ module.exports = {
 
             ch.send(new Discord.MessageEmbed()
                 .setColor(message.guild.member(client.user).displayHexColor)
-                .setAuthor(`│ Anúncio • Rede Harley`, message.guild.iconURL())
+                .setAuthor(`│ Anúncio • Rarley`, message.guild.iconURL())
                 .setDescription(args.join(' '))
                 .setFooter(message.author.tag, message.author.displayAvatarURL({ format: "png" }))
                 .setTimestamp())
-                .then(msg => { msg.react(config.guilds.harley.emojis.harley); });
+                .then(msg => { msg.react(config.guilds.rarley.emojis.rarley); });
             message.delete();
-            ch.send(`<@&${config.guilds.harley.roles.membro}> @everyone`)
+            ch.send(`<@&${config.guilds.rarley.roles.membro}> @everyone`)
                 .then(msg => { msg.delete({ timeout: 50 }); });
 
         } else {

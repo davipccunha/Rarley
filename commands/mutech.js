@@ -18,7 +18,7 @@ module.exports = {
                         deny: ['SEND_MESSAGES'],
                     },
                     {
-                        id: config.guilds.harley.roles.admin,
+                        id: config.guilds.rarley.roles.admin,
                         allow: ['SEND_MESSAGES']
                     }
                 ]);

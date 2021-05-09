@@ -2,7 +2,7 @@ module.exports = {
     name: "updateMembers",
     async count(client, config) {
 
-        const memberCount = client.guilds.resolve(config.guilds.harley.id).memberCount;
+        const memberCount = client.guilds.resolve(config.guilds.rarley.id).memberCount;
         const count = memberCount.toString()
             .replace(/0/g, ':zero:')
             .replace(/1/g, ':one:')
@@ -15,8 +15,8 @@ module.exports = {
             .replace(/8/g, ':eight:')
             .replace(/9/g, ':nine:');
 
-        client.guilds.resolve(config.guilds.harley.id).channels.resolve(config.guilds.harley.channels.geral).edit({
-            topic: `<:harley:618507312226893850> Contamos com ${count} membros em nosso Discord`
+        client.guilds.resolve(config.guilds.rarley.id).channels.resolve(config.guilds.rarley.channels.geral).edit({
+            topic: `<:rarley:840811013762449438> Contamos com ${count} membros em nosso Discord`
         })
     }
 }

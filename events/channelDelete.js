@@ -8,7 +8,7 @@ module.exports = {
 
         if (entry.executor.bot) return;
 
-        if (channel.parentID === config.guilds.harley.parents.suporte || channel.parentID === config.guilds.equipe.parents.formulario) {
+        if (channel.parentID === config.guilds.rarley.parents.suporte || channel.parentID === config.guilds.equipe.parents.formulario) {
             if (db.get(`form_${channel.name}`)) db.delete(`form_${channel.name}`);
 
             db.all().forEach(data => {

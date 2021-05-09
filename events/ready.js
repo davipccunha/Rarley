@@ -9,13 +9,13 @@ module.exports = {
         client.user.setActivity('jogar.rarley.com');
 
         // Re-react on support message
-        client.channels.resolve(config.guilds.harley.channels.suporte).messages.fetch(config.guilds.harley.messages.suporte).then(supportMessage => {
+        client.channels.resolve(config.guilds.rarley.channels.suporte).messages.fetch(config.guilds.rarley.messages.suporte).then(supportMessage => {
             supportMessage.reactions.removeAll();
-            supportMessage.react(config.guilds.harley.emojis.duvidas);
-            supportMessage.react(config.guilds.harley.emojis.compras);
-            supportMessage.react(config.guilds.harley.emojis.yt);
-            supportMessage.react(config.guilds.harley.emojis.revisoes);
-            supportMessage.react(config.guilds.harley.emojis.outros);
+            supportMessage.react(config.guilds.rarley.emojis.duvidas);
+            supportMessage.react(config.guilds.rarley.emojis.compras);
+            supportMessage.react(config.guilds.rarley.emojis.yt);
+            supportMessage.react(config.guilds.rarley.emojis.revisoes);
+            supportMessage.react(config.guilds.rarley.emojis.outros);
         })
     }
 }

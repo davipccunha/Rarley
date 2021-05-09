@@ -31,7 +31,6 @@ module.exports = {
                 .setDescription(`Foram deletadas as **${n}** últimas mensagens`)
                 .setFooter(message.author.tag, message.author.displayAvatarURL({ format: "png" }))
                 .setTimestamp())
-            message.delete({ timeout: 50 });
 
         } else {
             message.channel.send("Você precisa da permissão \`Gerenciar mensagens\` para usar esse comando.")

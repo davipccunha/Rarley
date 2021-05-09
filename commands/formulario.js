@@ -6,7 +6,7 @@ module.exports = {
         async function askQuestion(text) {
             return message.author.send(new Discord.MessageEmbed()
                 .setColor(message.guild.member(client.user).displayHexColor)
-                .setTitle('| Formulário • Rede Harley')
+                .setTitle('| Formulário • Rarley')
                 .setDescription(text)
                 .setFooter(client.user.username, client.user.displayAvatarURL({ format: "png" }))
                 .setTimestamp());
@@ -17,7 +17,7 @@ module.exports = {
         if (formulario == true) {
             message.author.send(new Discord.MessageEmbed()
                 .setColor(message.guild.member(client.user).displayHexColor)
-                .setTitle('| Formulário • Rede Harley')
+                .setTitle('| Formulário • Rarley')
                 .setDescription(`<@${message.author.id}>, você já tem um formulário pendente aguardando resposta.`));
             message.delete({ timeout: 5000 })
             return;
@@ -26,7 +26,7 @@ module.exports = {
             const cooldown = pms(formulario - Date.now());
             message.author.send(new Discord.MessageEmbed()
                 .setColor(message.guild.member(client.user).displayHexColor)
-                .setTitle('| Formulário • Rede Harley')
+                .setTitle('| Formulário • Rarley')
                 .setDescription(`<@${message.author.id}>, você foi reprovado recentemente e está em cooldown. Aguarde para tentar novamente.`)
                 .addField('Cooldown', `**${cooldown.days} dias, ${cooldown.hours} horas, ${cooldown.minutes} minutos, ${cooldown.seconds} segundos**`));
             message.delete({ timeout: 5000 })
@@ -41,7 +41,7 @@ module.exports = {
                 if (e.message === "Cannot send messages to this user") {
                     message.channel.send(new Discord.MessageEmbed()
                         .setColor('#FF0000')
-                        .setTitle('| Formulário • Rede Harley')
+                        .setTitle('| Formulário • Rarley')
                         .setDescription('Erro: libere o seu privado para que possa iniciar o formulário e digite o comando novamente.')
                         .addField('Instruções:', `Configurações de usuário -> Privacidade e segurança ->
                             Permitir mensagens diretas de membros do servidor`))
@@ -52,7 +52,7 @@ module.exports = {
             });
         const formCancelTxt = new Discord.MessageEmbed()
             .setColor(message.guild.member(client.user).displayHexColor)
-            .setTitle('| Formulário • Rede Harley')
+            .setTitle('| Formulário • Rarley')
             .setDescription(`<@${message.author.id}>, você cancelou o formulário. Você pode iniciá-lo novamente se desejar.`);
 
         message.delete({ timeout: 50 });
