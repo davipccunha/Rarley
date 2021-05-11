@@ -70,6 +70,7 @@ module.exports = {
                             .setTimestamp())
                             .then(ticket => {
                                 ticket.react(config.guilds.rarley.emojis.fechar);
+                                ticket.pin()
                                 db.set(`support_msg_${ticket.id}_${ticket.channel.id}`, true);
                             })
                     })
@@ -102,6 +103,7 @@ module.exports = {
                             .setTimestamp())
                             .then(ticket => {
                                 ticket.react(config.guilds.rarley.emojis.fechar);
+                                ticket.pin()
                                 db.set(`support_msg_${ticket.id}_${ticket.channel.id}`, true);
                             })
                     })
@@ -138,6 +140,7 @@ module.exports = {
                             .setTimestamp())
                             .then(ticket => {
                                 ticket.react(config.guilds.rarley.emojis.fechar);
+                                ticket.pin()
                                 db.set(`support_msg_${ticket.id}_${ticket.channel.id}`, true);
                             })
                     })
@@ -174,6 +177,7 @@ module.exports = {
                             .setTimestamp())
                             .then(ticket => {
                                 ticket.react(config.guilds.rarley.emojis.fechar);
+                                ticket.pin()
                                 db.set(`support_msg_${ticket.id}_${ticket.channel.id}`, true);
                             })
                     })
@@ -185,7 +189,7 @@ module.exports = {
             db.delete(`support_msg_${reaction.message.id}_${reaction.message.channel.id}`);
 
             // Form reactions
-        } else if (db.get(`form_msg_${reaction.message.id}`) && !user.bot) {
+        } else if (db.get(`form_msg_${reaction.message.id}_${reaction.message.channel.id}`) && !user.bot) {
             const author = client.guilds.resolve(config.guilds.rarley.id).members.resolve(reaction.message.channel.name);
             if (!author) return reaction.message.channel.delete() && db.delete(`form_${reaction.message.channel.name}`);
 

@@ -29,9 +29,6 @@ for (const file of eventFiles) {
 const prefix = config.prefix;
 
 client.once('ready', async () => {
-    client.channels.resolve(config.guilds.rarley.channels.spoilers).messages.fetch(config.guilds.rarley.messages.spoilers).then(supportMessage => {
-        supportMessage.react('🧐');
-    })
     await client.events.get("ready").execute(client, Discord, config, fs, db, pms);
     await client.events.get("updateMembers").count(client, config);
 });

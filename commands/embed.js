@@ -12,6 +12,13 @@ module.exports = {
                 return;
             }
 
+            if (args.join(' ').length > 1024) {
+                message.channel.send('O texto não pode exceder 1024 caracteres')
+                    .then(msg => msg.delete({ timeout: 3000 }));
+                message.delete({ timeout: 3000 });
+                return;
+            }
+
             const embed = new Discord.MessageEmbed()
                 .setColor(message.guild.member(client.user).displayHexColor)
                 .setDescription(`${args.join(' ')}\nㅤ`)
