@@ -193,6 +193,11 @@ module.exports = {
             const author = client.guilds.resolve(config.guilds.rarley.id).members.resolve(reaction.message.channel.name);
             if (!author) return reaction.message.channel.delete() && db.delete(`form_${reaction.message.channel.name}`);
 
+            const logForm = client.channels.resolve(config.guilds.equipe.channels.logFormularios)
+            if (!logForm) return;
+
+            logForm.send(reaction.message.embeds[0]);
+
             if (reaction.emoji.name === '✅') {
                 client.guilds.resolve(config.guilds.equipe.id).channels.resolve(config.guilds.equipe.channels.introducao).createInvite({
                     maxAge: 0,
@@ -200,7 +205,7 @@ module.exports = {
                 }).then(invite => {
                     author.send(new Discord.MessageEmbed()
                         .setColor(client.guilds.resolve(config.guilds.rarley.id).member(client.user).displayHexColor)
-                        .setTitle('Formulário • Rarley')
+                        .setAuthor('│ Formulário • Rarley', reaction.message.guild.iconURL())
                         .setDescription(`Parabéns! Seu formulário foi analisado e você foi aprovado para a nossa equipe como Ajudante!
 
                     Para continuar, junte-se ao nosso Discord em **https://discord.gg/${invite.code}** para mais informações.
@@ -211,13 +216,22 @@ module.exports = {
                     Bom jogo e obrigado por se juntar à equipe!`)
                         .setFooter(client.user.username, client.user.displayAvatarURL({ format: "png" }))
                         .setTimestamp())
+
+                    logForm.send(new Discord.MessageEmbed()
+                        .setColor(client.guilds.resolve(config.guilds.rarley.id).member(client.user).displayHexColor)
+                        .setAuthor(`│ Formulário • Rarley • ${reaction.message.channel.name}`, reaction.message.guild.iconURL())
+                        .setDescription(`Formulário ${reaction.message.channel.name} aprovado por <@${user.id}>`)
+                        .setFooter(client.user.username, client.user.displayAvatarURL({ format: "png" }))
+                        .setTimestamp())
+
                     reaction.message.channel.delete();
                     db.delete(`form_${author.id}`);
                 });
+
             } else if (reaction.emoji.name === '❌') {
                 author.send(new Discord.MessageEmbed()
                     .setColor(client.guilds.resolve(config.guilds.rarley.id).member(client.user).displayHexColor)
-                    .setTitle('Formulário • Rarley')
+                    .setAuthor('│ Formulário • Rarley', reaction.message.guild.iconURL())
                     .setDescription(`Olá! Seu formulário foi analisado e infelizmente você foi reprovado para a nossa equipe.
 
                 Não desista, pois você pode tentar novamente em **${config.formCooldown} dias**.
@@ -226,12 +240,20 @@ module.exports = {
                 Bom jogo e obrigado por se aplicar.`)
                     .setFooter(client.user.username, client.user.displayAvatarURL({ format: "png" }))
                     .setTimestamp())
+                logForm.send(new Discord.MessageEmbed()
+                    .setColor(client.guilds.resolve(config.guilds.rarley.id).member(client.user).displayHexColor)
+                    .setAuthor(`│ Formulário • Rarley • ${reaction.message.channel.name}`, reaction.message.guild.iconURL())
+                    .setDescription(`Formulário ${reaction.message.channel.name} negado por <@${user.id}>`)
+                    .setFooter(client.user.username, client.user.displayAvatarURL({ format: "png" }))
+                    .setTimestamp())
+
                 reaction.message.channel.delete();
                 db.set(`form_${author.id}`, Date.now() + (config.formCooldown * 24 * 60 * 60 * 1000));
+
             } else if (reaction.emoji.name === '♻️') {
                 author.send(new Discord.MessageEmbed()
                     .setColor(client.guilds.resolve(config.guilds.rarley.id).member(client.user).displayHexColor)
-                    .setTitle('Formulário • Rarley')
+                    .setAuthor('│ Formulário • Rarley', reaction.message.guild.iconURL())
                     .setDescription(`Olá! Seu formulário foi excluído por nossa equipe.
 
                             Você não foi aprovado nem negado e, portanto, pode reaplicar para nosssa equipe agora mesmo.
@@ -241,6 +263,13 @@ module.exports = {
                             Bom jogo e obrigado por se aplicar.`)
                     .setFooter(client.user.username, client.user.displayAvatarURL({ format: "png" }))
                     .setTimestamp())
+                logForm.send(new Discord.MessageEmbed()
+                    .setColor(client.guilds.resolve(config.guilds.rarley.id).member(client.user).displayHexColor)
+                    .setAuthor(`│ Formulário • Rarley • ${reaction.message.channel.name}`, reaction.message.guild.iconURL())
+                    .setDescription(`Formulário ${reaction.message.channel.name} excluído por <@${user.id}>`)
+                    .setFooter(client.user.username, client.user.displayAvatarURL({ format: "png" }))
+                    .setTimestamp())
+
                 reaction.message.channel.delete();
                 db.delete(`form_${author.id}`);
             }

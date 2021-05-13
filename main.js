@@ -81,13 +81,21 @@ client.on('message', async message => {
             switch (command) {
                 case 'control':
                     if (message.author.id !== config.devID) return message.delete({ timeout: 1000 });
-                    if (args == 'all') {
-                        console.log(db.all())
-                    }
-                    else if (args == 'reset') {
-                        db.all().forEach(data => {
-                            db.delete(data.ID);
-                        })
+                    switch (args[0]) {
+                        case 'all':
+                            console.log(db.all());
+                            break;
+                        case 'reset':
+                            db.all().forEach(data => {
+                                db.delete(data.ID);
+                            });
+                            break;
+                        case 'msg':
+                            client.channels.resolve(config.guilds.rarley.channels.suporte).messages.fetch('842505665104707636').then(msg => {
+                                console.log(msg);
+                                message.channel.send(msg.embeds[0]);
+                            })
+                            break;
                     }
                     message.delete({ timeout: 1000 });
                     break;
@@ -163,12 +171,12 @@ client.on('message', async message => {
                     break;
                 default:
                     await message.channel.send('Comando inexistente.')
-                        .then(msg => { msg.delete({ timeout: 3000 }); });
+                        .then(msg => { msg.delete({ timeout: 5000 }); });
                     message.delete({ timeout: 3000 });
             }
         } else {
             message.channel.send(`Comandos devem ser enviadas no canal <#${config.guilds.rarley.channels.comandos}>.`)
-                .then(msg => { msg.delete({ timeout: 3000 }); });
+                .then(msg => { msg.delete({ timeout: 5000 }); });
             message.delete({ timeout: 3000 });
         }
     }

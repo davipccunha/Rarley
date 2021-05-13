@@ -16,7 +16,7 @@ module.exports = {
             .replace(/9/g, ':nine:');
 
         client.guilds.resolve(config.guilds.rarley.id).channels.resolve(config.guilds.rarley.channels.geral).edit({
-            topic: `<:rarley:840811013762449438> Contamos com ${count} membros em nosso Discord`
+            topic: `<:rarley:${config.guilds.rarley.emojis.rarley}> Contamos com ${count} membros em nosso Discord`
         })
     }
 }

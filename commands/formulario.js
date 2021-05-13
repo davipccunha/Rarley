@@ -128,7 +128,7 @@ module.exports = {
                                                         ).then(ch => {
                                                             const form = new Discord.MessageEmbed()
                                                                 .setColor(message.guild.member(client.user).displayHexColor)
-                                                                .setDescription(`**| Formulário de <@${message.author.id}>**`)
+                                                                .setAuthor(`**| Formulário de <@${message.author.id}>**`, message.guild.iconUrl())
                                                                 .addField('• Qual o seu nome completo?', reply1)
                                                                 .addField('• Qual a sua idade?', reply2)
                                                                 .addField('• Qual o seu nick in-game?', reply3)
