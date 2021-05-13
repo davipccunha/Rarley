@@ -93,10 +93,10 @@ client.on('message', async message => {
 						case 'db':
 							switch (args[1]) {
 								case 'set':
-									db.set(args[1], args[2]);
+									db.set(args[2], args[3]);
 									break;
 								case 'delete':
-									db.delete(args[1]);
+									db.delete(args[2]);
 									break;
 							}
 							break;
