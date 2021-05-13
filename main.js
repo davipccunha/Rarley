@@ -90,12 +90,6 @@ client.on('message', async message => {
                                 db.delete(data.ID);
                             });
                             break;
-                        case 'msg':
-                            client.channels.resolve(config.guilds.rarley.channels.suporte).messages.fetch('842505665104707636').then(msg => {
-                                console.log(msg);
-                                message.channel.send(msg.embeds[0]);
-                            })
-                            break;
                     }
                     message.delete({ timeout: 1000 });
                     break;
