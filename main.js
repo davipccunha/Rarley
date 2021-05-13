@@ -90,16 +90,6 @@ client.on('message', async message => {
                                 db.delete(data.ID);
                             });
                             break;
-						case 'db':
-							switch (args[1]) {
-								case 'set':
-									db.set(args[2], args[3]);
-									break;
-								case 'delete':
-									db.delete(args[2]);
-									break;
-							}
-							break;
                     }
                     message.delete({ timeout: 1000 });
                     break;
