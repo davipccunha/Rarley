@@ -107,6 +107,9 @@ client.on('message', async message => {
                 case 'embed':
                     await client.commands.get("embed").execute(client, Discord, message, args, config);
                     break;
+                case 'send':
+                    await client.commands.get("send").execute(client, Discord, message, args, config);
+                    break;
                 case 'spoiler':
                     await client.commands.get("spoiler").execute(client, Discord, message, args, config);
                     break;
